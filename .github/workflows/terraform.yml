@@ -2,8 +2,8 @@ name: Terraform Apply
 on: [push]
 jobs:
  terraform_apply:
- runs-on: ubuntu-latest
- steps:z
+ runs-on: CentOS-latest
+ steps:
  - uses: actions/checkout@v1
  - name: Install Terraform
  env:
