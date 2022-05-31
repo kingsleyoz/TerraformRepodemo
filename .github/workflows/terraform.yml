@@ -1,0 +1,31 @@
+name: Terraform Apply
+on: [push]
+jobs:
+ terraform_apply:
+ runs-on: ubuntu-latest
+ steps:z
+ - uses: actions/checkout@v1
+ - name: Install Terraform
+ env:
+ TERRAFORM_VERSION: "0.12.15"
+ run: |
+ tf_version=$TERRAFORM_VERSION
+ wget 
+https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_vers
+ion"_linux_amd64.zip
+unzip terraform_"$tf_version"_linux_amd64.zip
+ sudo mv terraform /usr/local/bin/
+ - name: Verify Terraform version
+ run: terraform --version
+ - name: Terraform init
+ env:
+ AWS_ACCESS_KEY_ID: 'AKIATEZW3LKUWKPP6D6U'
+ AWS_SECRET_ACCESS_KEY: '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'
+ run: terraform init -input=false
+ - name: Terraform validation
+ run: terraform validate
+ - name: Terraform apply
+ env:
+ AWS_ACCESS_KEY_ID: 'AKIATEZW3LKUWKPP6D6U'
+ AWS_SECRET_ACCESS_KEY: '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'
+ run: terraform apply -auto-approve -input=false
