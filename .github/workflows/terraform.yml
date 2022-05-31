@@ -9,7 +9,7 @@ jobs:
  env:
  TERRAFORM_VERSION: "0.12.15"
  run: |
- tf_version=$TERRAFORM_VERSION
+ tf_version= $TERRAFORM_VERSION
  wget 
 https://releases.hashicorp.com/terraform/"$tf_version"/terraform_"$tf_vers
 ion"_linux_amd64.zip
